@@ -1,0 +1,66 @@
+\\Nesse exemplo criei uma cálculadora com objetos ligados, exemplo:
+
+public class Calculadora {
+  public int Soma (int a, int b){
+	  int resultado;
+	  resultado = a + b;
+	  return resultado;
+  } 
+//sobrecarga para o metodo soma
+  		public float soma (float a, float b) {
+			return a + b;
+  }
+		public int soma (String a, String b) {
+			int n1 = Integer.parseInt(a);
+			int n2 = Integer.parseInt(b);
+			return n1 + n2;
+		}
+public int soma (int a, int b, int c){
+	return a + b+ c;
+}
+ public int soma (String a, int b) {
+	return Integer.parseInt(a) + b;
+}
+	public int soma (int a, String b) {
+		return a + Integer.parseInt(b);
+}
+
+public int Subtracao (int a, int b) {
+	return a - b;
+}
+	public int Multiplicacao (int a, int b) {
+		return a * b;
+	}
+	public int Divisao (int a, int b) {
+	return a / b;
+	}
+}
+
+\\após a criação da base da calculadora, iremos agora para a calculadora em sí:
+
+
+import javax.swing.JOptionPane;
+
+public class CalculadoraP2 {
+
+	public static void main(String[] args) {
+		Calculadora c = new Calculadora ();
+		int opcao = Integer.parseInt(JOptionPane.showInputDialog("1-Soma\n2-Subtracao\n3-Multiplicacao\n4-Divisao"));
+		int operando1 = Integer.parseInt(JOptionPane.showInputDialog("Qual o primeiro operando?"));
+		int operando2 = Integer.parseInt(JOptionPane.showInputDialog("Qual o segundo operando?"));
+		int resultado;
+		if(opcao == 1) {
+			resultado = c.Soma(operando1, operando2);
+		}
+		else if (opcao == 2) {
+			resultado = c.Subtracao(operando1, operando2);
+		}
+		else if (opcao == 3) {
+			resultado = c.Multiplicacao(operando1, operando2);
+		}
+		else {
+			resultado = c.Divisao(operando1, operando2);
+		}
+		JOptionPane.showMessageDialog(null,"Resultado: " + resultado);
+	}
+}
